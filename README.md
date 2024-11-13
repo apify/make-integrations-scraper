@@ -1,7 +1,7 @@
 ## Make Integrations Scraper
 
 This Apify Actor scrapes the list of integrations from the Make Integrations page.
-The data are stored in a key-value store as JSON list.
+The data are stored in a key-value store as JSON list under the key `make_integrations`.
 
 ## Input schema
 
