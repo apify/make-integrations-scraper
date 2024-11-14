@@ -8,6 +8,7 @@ The data are stored in a key-value store as JSON list under the defined key.
 The input schema defines the following properties:
 
 - **keyValueStore**: The id of the key-value store to insert results into. If not provided, the results will be stored in the default key-value store.
+- **key**: The key under which the results will be stored in the key-value store.
 - **pageSize**: The number of items to get in one request.
 - **maxConcurrentRequests**: The number of concurrent requests to make to the server.
 
