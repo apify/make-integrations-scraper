@@ -5,10 +5,11 @@ import axiosRetry from 'axios-retry';
 await Actor.init();
 
 const BASE_URL = 'https://www.make.com/pw-api/integrations/search-apps?name=&nativeApps=true&addOnApps=true&sort=Most+Popular&category=&isCategory=false&isSubCategory=false';
-const KV_STORE_KEY = 'make_integrations';
+const DEFAULT_KV_STORE_KEY = 'make';
 
 interface Input {
     keyValueStore: string;
+    key: string;
     pageSize: number;
     maxConcurrentRequests: number;
 }
@@ -39,6 +40,7 @@ if (!input) throw new Error('Input is missing!');
 
 const {
     keyValueStore,
+    key = DEFAULT_KV_STORE_KEY,
     pageSize = 100,
     maxConcurrentRequests = 5,
 } = input;
@@ -119,7 +121,7 @@ const uniqueItems = Array.from(
 );
 
 const store = await Actor.openKeyValueStore(keyValueStore);
-await store.setValue(KV_STORE_KEY, uniqueItems);
+await store.setValue(key, uniqueItems);
 
 console.log(`Stored ${uniqueItems.length} integrations`);
 
