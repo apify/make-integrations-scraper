@@ -18,29 +18,25 @@
             "prefill": "make",
             "default": "make"
         },
-        "pageSize": {
-            "title": "Page size",
-            "type": "integer",
-            "description": "Number of items to get in one request.",
-            "editor": "number",
-            "prefill": 100,
-            "default": 100,
-            "minimum": 10,
-            "maximum": 10000
-        },
         "maxConcurrentRequests": {
             "title": "Max concurrent requests",
             "type": "integer",
-            "description": "Number of concurrent requests to make to the server.",
+            "description": "Number of integration list pages to load in parallel.",
             "editor": "number",
-            "prefill": 10,
-            "default": 10,
+            "prefill": 5,
+            "default": 5,
             "minimum": 1,
             "maximum": 100
+        },
+        "minItems": {
+            "title": "Minimum number of integrations",
+            "type": "integer",
+            "description": "The run fails without overwriting the stored data if fewer integrations are scraped. Protects against storing partial results when Make changes its website.",
+            "editor": "number",
+            "prefill": 1000,
+            "default": 1000,
+            "minimum": 0
         }
     },
-    "required": [
-        "pageSize",
-        "maxConcurrentRequests"
-    ]
+    "required": []
 }
